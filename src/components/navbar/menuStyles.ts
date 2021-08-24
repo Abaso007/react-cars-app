@@ -3,7 +3,7 @@ const MenuStyles = {
     position: "absolute",
     width: "20px",
     height: "20px",
-    left: "20px",
+    right: "20px",
     top: "20px",
   },
   bmBurgerBars: {
@@ -21,7 +21,9 @@ const MenuStyles = {
   },
   bmMenuWrap: {
     position: "fixed",
+    width: "60%",
     height: "100%",
+    top: "0px",
   },
   bmMenu: {
     background: "#373a47",
