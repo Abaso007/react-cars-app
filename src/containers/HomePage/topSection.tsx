@@ -148,16 +148,12 @@ export function TopSection() {
   return (
     <TopSectionContainer>
       <LeftContainer>
-        <Slogan>Rent The Highest And Cheapest Quality Cars With Us!</Slogan>
+        <Slogan>Rent The Highest Quality Car's With Us!</Slogan>
         <Description>
           Always choose the best car from our local stores or order it remotely
           at the best price for you and get the best quality cars for as long as
           you like
         </Description>
-        <ButtonContainer>
-          <Button text="Book Your Ride" />
-          <Button theme="filled" text="Sell Your Car" />
-        </ButtonContainer>
       </LeftContainer>
       <RightContainer>
         <BlobContainer>
