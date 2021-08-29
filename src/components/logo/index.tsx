@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import CarLogoImg from "../../assets/images/car-logo.png";
+import CarLogoImg from "../../assets/images/car-logo.jpg";
 
 const LogoContainer = styled.div`
   ${tw`
@@ -33,9 +33,9 @@ export function Logo() {
   return (
     <LogoContainer>
       <Image>
-        <img alt="Car Logo" src={CarLogoImg}></img>
+        <img alt="Infamous Motor Group" src={CarLogoImg}></img>
       </Image>
-      <LogoText>YourCar.</LogoText>
+      <LogoText>Infamous Motor Group</LogoText>
     </LogoContainer>
   );
 }
