@@ -114,14 +114,15 @@ const StandAloneCar = styled.div`
   position: absolute;
 
   img {
-    width: auto;
+    width: 100%;
     height: 100%;
     max-width: fit-content;
+    
   }
 
   @media (min-width: ${SCREENS.sm}) {
     height: 16em;
-    right: -6em;
+    right: -5em;
     top: -6em;
   }
   @media (min-width: ${SCREENS.lg}) {
@@ -131,7 +132,7 @@ const StandAloneCar = styled.div`
   }
   @media (min-width: ${SCREENS.xl}) {
     height: 30em;
-    right: -13em;
+    right: -5em;
     top: -9em;
   }
 `;

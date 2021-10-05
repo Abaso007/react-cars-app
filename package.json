@@ -31,6 +31,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "typecheck": "tsc -w", 
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
