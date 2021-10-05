@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using [Redux](https://redux.js.org/) [Tailwindcss](https://tailwindcss.com/docs/guides/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), [Redux](https://redux.js.org/), [Tailwindcss](https://tailwindcss.com/docs/guides/create-react-app).
 
 ## Available Scripts
 
