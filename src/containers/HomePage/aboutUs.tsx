@@ -10,7 +10,7 @@ const AboutUsContainer = styled.div`
     flex
     flex-wrap
     items-center
-    2xl:justify-center
+    justify-center
     pt-4
     pb-4
     pr-7
@@ -22,7 +22,7 @@ const AboutUsContainer = styled.div`
 const CarContainer = styled.div`
     width: auto;
     height: 15em;
-    margin-left: -30px;
+    margin-left: -50px;
     img {
         width: auto;
         height: 100%;
@@ -44,7 +44,7 @@ const CarContainer = styled.div`
 
 const InfoContainer = styled.div`
     ${tw`
-    w-1/2
+    md:w-1/2
     flex
     flex-col
     md:ml-6
@@ -65,7 +65,7 @@ const Title = styled.h1`
 
 const InfoText = styled.p`
     ${tw`
-    max-w-2xl
+    md:max-w-2xl
     text-sm
     md:text-base
     text-gray-500
