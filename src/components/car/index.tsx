@@ -1,5 +1,6 @@
 import React from "react"
 import {
+  faCalendar,
   faEllipsisH,
   faFillDrip,
   faTachometerAlt,
@@ -34,8 +35,8 @@ const CarThumbnail = styled.div`
   width: 100%;
   height: auto;
   img {
-    width: 100%;
-    height: 100%;
+    width: 500px;
+    height: 500px;
   }
 `
 const CarName = styled.h3`
@@ -140,6 +141,7 @@ export function Car(props: ICarProps) {
     mileage,
     gearType,
     gas,
+    year,
   } = props
 
   return (
@@ -151,11 +153,11 @@ export function Car(props: ICarProps) {
       <PricesContainer>
         <DailyPrice>
           {dailyPrice}
-          <SmallText>/Day</SmallText>
+          <SmallText>$/Day</SmallText>
         </DailyPrice>
         <MonthlyPrice>
           {monthlyPrice}
-          <SmallText>/Month</SmallText>
+          <SmallText>$/Month</SmallText>
         </MonthlyPrice>
       </PricesContainer>
       <Seperator />
@@ -177,6 +179,12 @@ export function Car(props: ICarProps) {
             <FontAwesomeIcon icon={faFillDrip} />
           </SmallIcon>
           <CarInfo>{gas}</CarInfo>
+        </CarDetail>
+        <CarDetail>
+          <SmallIcon>
+            <FontAwesomeIcon icon={faCalendar} />
+          </SmallIcon>
+          <CarInfo>{year}</CarInfo>
         </CarDetail>
       </CarDetailsContainer>
       <RentButton text="Rent Now" />

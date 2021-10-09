@@ -6,4 +6,5 @@ export interface ICar {
     dailyPrice: number;
     monthlyPrice: number;
     gas: string;
+    year: number;
 }
