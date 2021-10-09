@@ -33,10 +33,10 @@ md:m-6
 
 const CarThumbnail = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
   img {
-    width: 500px;
-    height: 500px;
+    width: 640px;
+    height: auto;
   }
 `
 const CarName = styled.h3`

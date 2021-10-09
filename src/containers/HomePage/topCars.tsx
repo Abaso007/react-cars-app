@@ -48,7 +48,7 @@ export default function TopCars() {
   const audiRS5: ICar = {
     name: "Audi RS5 SportBack",
     mileage: "0",
-    thumbnailSrc: "https://i.imgur.com/6w9EYuP.jpg",
+    thumbnailSrc: "https://i.imgur.com/6w9EYuP.webp",
     dailyPrice: 70,
     monthlyPrice: 1600,
     gearType: "Auto",
@@ -58,7 +58,7 @@ export default function TopCars() {
   const bmwM8: ICar = {
     name: "BMW M8 Competition Gran Coupe",
     mileage: "0",
-    thumbnailSrc: "https://i.imgur.com/cg12Spd.jpg",
+    thumbnailSrc: "https://i.imgur.com/cg12Spd.webp",
     dailyPrice: 70,
     monthlyPrice: 1600,
     gearType: "Auto",
@@ -68,7 +68,7 @@ export default function TopCars() {
   const rollsRoyceGhost: ICar = {
     name: "Rolls Royce Ghost",
     mileage: "0",
-    thumbnailSrc: "https://imgur.com/t6XBm9d.jpg",
+    thumbnailSrc: "https://i.imgur.com/t6XBm9d.webp",
     dailyPrice: 70,
     monthlyPrice: 1600,
     gearType: "Auto",
