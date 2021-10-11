@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import tw from "twin.macro";
-import MclarenCarImg from "../../assets/images/mclaren-orange-big.png";
-import BlobImg from "../../assets/images/blob.svg";
-import SCREENS from "../../components/responsive";
+import React from "react"
+import styled from "styled-components"
+import tw from "twin.macro"
+import MclarenCarImg from "../../assets/images/mclaren-orange-big.png"
+import BlobImg from "../../assets/images/blob.svg"
+import SCREENS from "../../components/responsive"
 
 const TopSectionContainer = styled.div`
   min-height: 400px;
@@ -18,7 +18,7 @@ const TopSectionContainer = styled.div`
     lg:pl-12
     lg:pr-12
     `}
-`;
+`
 
 const LeftContainer = styled.div`
   ${tw`
@@ -26,7 +26,7 @@ const LeftContainer = styled.div`
     flex
     flex-col
 `}
-`;
+`
 
 const RightContainer = styled.div`
   ${tw`
@@ -36,7 +36,7 @@ const RightContainer = styled.div`
     relative
     mt-20
 `}
-`;
+`
 
 const Slogan = styled.h1`
   ${tw`
@@ -53,7 +53,7 @@ const Slogan = styled.h1`
     lg:leading-normal
     lg:leading-relaxed
 `}
-`;
+`
 
 const Description = styled.p`
   ${tw`
@@ -65,7 +65,7 @@ const Description = styled.p`
   max-h-12
   text-gray-800
   `}
-`;
+`
 
 const BlobContainer = styled.div`
   width: 20em;
@@ -103,7 +103,7 @@ const BlobContainer = styled.div`
     top: -25em;
     transform: rotate(-20deg);
   }
-`;
+`
 
 const StandAloneCar = styled.div`
   width: auto;
@@ -116,7 +116,6 @@ const StandAloneCar = styled.div`
     width: 100%;
     height: 100%;
     max-width: fit-content;
-    
   }
 
   @media (min-width: ${SCREENS.sm}) {
@@ -134,15 +133,13 @@ const StandAloneCar = styled.div`
     right: -5em;
     top: -9em;
   }
-`;
-
-
+`
 
 export function TopSection() {
   return (
     <TopSectionContainer>
       <LeftContainer>
-        <Slogan>Rent The Highest Quality Car's With Us!</Slogan>
+        <Slogan>The Automotive Customization Shop</Slogan>
         <Description>
           Always choose the best car from our local stores or order it remotely
           at the best price for you and get the best quality cars for as long as
@@ -158,5 +155,5 @@ export function TopSection() {
         </StandAloneCar>
       </RightContainer>
     </TopSectionContainer>
-  );
+  )
 }

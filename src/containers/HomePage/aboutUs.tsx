@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
-import SCREENS from "../../components/responsive";
+import SCREENS from "../../components/responsive"
 import JeepImg from "../../assets/images/jeep.png"
 
 const AboutUsContainer = styled.div`
-    ${tw`
+  ${tw`
     w-full
     flex
     flex-wrap
@@ -20,40 +20,41 @@ const AboutUsContainer = styled.div`
     `}
 `
 const CarContainer = styled.div`
+  width: auto;
+  height: 15em;
+  margin-left: -50px;
+  img {
     width: auto;
-    height: 15em;
-    margin-left: -50px;
-    img {
-        width: auto;
-        height: 100%;
-        }
+    height: 100%;
+  }
 
-    @media (min-width: ${SCREENS.md}) {
-        height: 20em;
-    }
+  @media (min-width: ${SCREENS.md}) {
+    height: 20em;
+  }
 
-    @media (min-width: ${SCREENS.lg}) {
-        height: 30em;
-    }
+  @media (min-width: ${SCREENS.lg}) {
+    height: 30em;
+  }
 
-    @media (min-width: ${SCREENS["2xl"]}) {
-        height: 35em;
-        margin-left: 0;
-    }
-`;
+  @media (min-width: ${SCREENS["2xl"]}) {
+    height: 35em;
+    margin-left: 0;
+  }
+`
 
 const InfoContainer = styled.div`
-    ${tw`
+  ${tw`
     md:w-1/2
     flex
     flex-col
     md:ml-6
     2xl:ml-16
-    `}
-`;
+items-center
+`}
+`
 
 const Title = styled.h1`
-    ${tw`
+  ${tw`
     text-black
     text-2xl
     md:text-5xl
@@ -64,7 +65,7 @@ const Title = styled.h1`
 `
 
 const InfoText = styled.p`
-    ${tw`
+  ${tw`
     md:max-w-2xl
     text-sm
     md:text-base
@@ -73,17 +74,21 @@ const InfoText = styled.p`
     `}
 `
 export default function AboutUs() {
-    return (
-<AboutUsContainer>
-    <CarContainer>
-        <img src={JeepImg} alt="Jeep"/>
-    </CarContainer>
-    <InfoContainer>
-        <Title>Feal The Best Experience With Our Rental Deals</Title>
-    <InfoText>
-    Welcome to our car service. Whatever your needs may be, get in touch with us today for more details about our products and services. If you visit us in person, our business has discounts for active military personnel. Wheelchair accessible entrance available. We look forward to meeting you.
-    </InfoText>
-    </InfoContainer>
-</AboutUsContainer>
-    )
+  return (
+    <AboutUsContainer>
+      <CarContainer>
+        <img src={JeepImg} alt="Jeep" />
+      </CarContainer>
+      <InfoContainer>
+        <Title>The Premier Private Car Club.</Title>
+        <InfoText>
+          Welcome to our car service. Whatever your needs may be, get in touch
+          with us today for more details about our products and services. If you
+          visit us in person, our business has discounts for active military
+          personnel. Wheelchair accessible entrance available. We look forward
+          to meeting you.
+        </InfoText>
+      </InfoContainer>
+    </AboutUsContainer>
+  )
 }
