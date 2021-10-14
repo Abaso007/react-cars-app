@@ -206,9 +206,6 @@ export default function Footer() {
               <a href="#">Services</a>
             </ListItem>
             <ListItem>
-              <a href="#">Models</a>
-            </ListItem>
-            <ListItem>
               <a href="#">Blog</a>
             </ListItem>
           </LinksList>
