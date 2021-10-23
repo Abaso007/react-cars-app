@@ -3,7 +3,7 @@
     "host": "localhost",
     "port": 3306,
     "username": "root",
-    "password": "",
+    "password": "akram9237u3m0xyF@",
     "database": "infamous",
     "entities": ["dist/**/entities/*{.ts,.js}"],
     "synchronize": true,

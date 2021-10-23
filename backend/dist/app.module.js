@@ -11,11 +11,23 @@ const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const config_1 = require("@nestjs/config");
+const database_module_1 = require("./database/database.module");
+const graphql_1 = require("@nestjs/graphql");
+const components_module_1 = require("./components/components.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [config_1.ConfigModule.forRoot()],
+        imports: [
+            config_1.ConfigModule.forRoot(),
+            database_module_1.DatabaseModule,
+            graphql_1.GraphQLModule.forRoot({
+                playground: true,
+                debug: true,
+                autoSchemaFile: true,
+            }),
+            components_module_1.ComponentsModule,
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
