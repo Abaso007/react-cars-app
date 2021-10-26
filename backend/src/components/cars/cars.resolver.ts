@@ -8,6 +8,6 @@ export class CarsResolver {
 
   @Query((returns) => String)
   public async cars() {
-    return "Hello and Welcome To Infamous Automotive Customization Shop";
+    return "Hello and Welcome To Infamous Motor Group Automotive Customization Shop";
   }
 }
