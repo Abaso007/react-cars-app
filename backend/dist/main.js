@@ -4,6 +4,7 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    app.useGlobalFilters(new core_1.BaseExceptionFilter());
     await app.listen(process.env.PORT || 9000);
 }
 bootstrap();
