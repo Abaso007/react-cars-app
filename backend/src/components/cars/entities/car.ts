@@ -26,6 +26,10 @@ export class Car {
 
   @Column()
   @Field()
+  year: number;
+
+  @Column()
+  @Field()
   gas: string;
 
   @Column()
