@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import SCREENS from "../../components/responsive"
-import JeepImg from "../../assets/images/jeep.png"
+import JeepImg from "../../../assets/images/jeep.png"
 
 const AboutUsContainer = styled.div`
   ${tw`

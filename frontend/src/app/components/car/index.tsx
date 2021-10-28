@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import tw from "twin.macro"
-import { ICar } from "../../typings/car"
+import { ICar } from "../../../typings/car"
 import { Button } from "../button"
 
 interface ICarProps extends ICar {}

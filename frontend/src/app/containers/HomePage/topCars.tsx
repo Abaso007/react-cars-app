@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { Car } from "../../components/car"
-import { ICar } from "../../typings/car"
+import { ICar } from "../../../typings/car"
 import "@brainhubeu/react-carousel/lib/style.css"
 import Carousel, {
   slidesToShowPlugin,
