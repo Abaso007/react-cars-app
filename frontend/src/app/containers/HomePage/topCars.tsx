@@ -12,6 +12,10 @@ import { useMediaQuery } from "react-responsive"
 import SCREENS from "../../components/responsive/index"
 import { Dots } from "@brainhubeu/react-carousel"
 import carService from "../../services/carService"
+import { GetCars_cars } from "../../services/carService/__generated__/GetCars"
+import { setTopCars } from "./slice"
+import { useDispatch } from "react-redux"
+import { Dispatch } from "redux"
 
 const TopCarContainer = styled.div`
   ${tw`
@@ -48,15 +52,22 @@ md:mt-10
 `}
 `
 
+const actionDispatch = (dispatch: Dispatch) => ({
+  setTopCars: (cars: GetCars_cars[]) => dispatch(setTopCars(cars)),
+})
+
 export default function TopCars() {
   const [current, setCurrent] = useState()
   const isMobile = useMediaQuery({ maxWidth: SCREENS.sm })
+
+  const { setTopCars } = actionDispatch(useDispatch())
 
   const fetchTopCars = async () => {
     const cars = await carService.getCars().catch((err) => {
       console.log(err)
     })
     console.log(cars)
+    if (cars) setTopCars(cars)
   }
 
   const audiRS5: ICar = {
