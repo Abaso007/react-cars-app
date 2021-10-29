@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { Car } from "../../components/car"
@@ -11,6 +11,7 @@ import Carousel, {
 import { useMediaQuery } from "react-responsive"
 import SCREENS from "../../components/responsive/index"
 import { Dots } from "@brainhubeu/react-carousel"
+import carService from "../../services/carService"
 
 const TopCarContainer = styled.div`
   ${tw`
@@ -51,6 +52,13 @@ export default function TopCars() {
   const [current, setCurrent] = useState()
   const isMobile = useMediaQuery({ maxWidth: SCREENS.sm })
 
+  const fetchTopCars = async () => {
+    const cars = await carService.getCars().catch((err) => {
+      console.log(err)
+    })
+    console.log(cars)
+  }
+
   const audiRS5: ICar = {
     name: "Audi RS5 SportBack",
     mileage: "0",
@@ -81,6 +89,10 @@ export default function TopCars() {
     gas: "Petrol",
     year: 2022,
   }
+
+  useEffect(() => {
+    fetchTopCars()
+  }, [])
 
   const cars = [
     <Car {...audiRS5} />,
