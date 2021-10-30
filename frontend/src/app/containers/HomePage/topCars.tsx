@@ -2,168 +2,168 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import tw from "twin.macro"
 import { Car } from "../../components/car"
-import { ICar } from "../../../typings/car"
+import Carousel, { Dots, slidesToShowPlugin } from "@brainhubeu/react-carousel"
 import "@brainhubeu/react-carousel/lib/style.css"
-import Carousel, {
-  slidesToShowPlugin,
-  autoplayPlugin,
-} from "@brainhubeu/react-carousel"
 import { useMediaQuery } from "react-responsive"
-import SCREENS from "../../components/responsive/index"
-import { Dots } from "@brainhubeu/react-carousel"
+import SCREENS from "../../components/responsive"
 import carService from "../../services/carService"
+import { Dispatch } from "redux"
 import { GetCars_cars } from "../../services/carService/__generated__/GetCars"
 import { setTopCars } from "./slice"
-import { useDispatch } from "react-redux"
-import { Dispatch } from "redux"
+import { useDispatch, useSelector } from "react-redux"
+import { createSelector } from "reselect"
+import { makeSelectTopCars } from "../selectors"
+import MoonLoader from "react-spinners/MoonLoader"
 
-const TopCarContainer = styled.div`
+const TopCarsContainer = styled.div`
   ${tw`
-max-w-screen-lg
-w-full
-flex
-flex-col
-items-center
-justify-center
-pr-4
-pl-4
-md:pl-0
-md:pr-0
-mb-10
-`}
+    max-w-screen-lg
+    w-full
+    flex
+    flex-col
+    items-center
+    justify-center
+    pr-4
+    pl-4
+    md:pl-0
+    md:pr-0
+    mb-10
+  `};
 `
+
 const Title = styled.h2`
   ${tw`
-text-3xl
-lg:text-5xl
-text-black
-font-extrabold
-`}
+    text-3xl
+    lg:text-5xl
+    text-black
+    font-extrabold
+  `};
 `
 
 const CarsContainer = styled.div`
   ${tw`
-w-full
-flex
-flex-wrap
-justify-center
-mt-7
-md:mt-10
-`}
+    w-full
+    flex
+    flex-wrap
+    justify-center
+    mt-7
+    md:mt-10
+  `};
+`
+
+const EmptyCars = styled.div`
+  ${tw`
+    w-full
+    flex
+    justify-center
+    items-center
+    text-sm
+    text-gray-500
+  `};
+`
+
+const LoadingContainer = styled.div`
+  ${tw`
+    w-full
+    mt-9
+    flex
+    justify-center
+    items-center
+    text-base
+    text-black
+  `};
 `
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setTopCars: (cars: GetCars_cars[]) => dispatch(setTopCars(cars)),
 })
 
+const stateSelector = createSelector(makeSelectTopCars, (topCars) => ({
+  topCars,
+}))
+
 export default function TopCars() {
-  const [current, setCurrent] = useState()
+  const [current, setCurrent] = useState(0)
+  const [isLoading, setLoading] = useState(false)
+
   const isMobile = useMediaQuery({ maxWidth: SCREENS.sm })
 
+  const { topCars } = useSelector(stateSelector)
   const { setTopCars } = actionDispatch(useDispatch())
 
   const fetchTopCars = async () => {
+    setLoading(true)
     const cars = await carService.getCars().catch((err) => {
-      console.log(err)
+      console.log("Error: ", err)
     })
-    console.log(cars)
-    if (cars) setTopCars(cars)
-  }
 
-  const audiRS5: ICar = {
-    name: "Audi RS5 SportBack",
-    mileage: "0",
-    thumbnailSrc: "https://i.imgur.com/6w9EYuP.webp",
-    dailyPrice: 70,
-    monthlyPrice: 1600,
-    gearType: "Auto",
-    gas: "Petrol",
-    year: 2022,
-  }
-  const bmwM8: ICar = {
-    name: "BMW M8 Competition Gran Coupe",
-    mileage: "0",
-    thumbnailSrc: "https://i.imgur.com/cg12Spd.webp",
-    dailyPrice: 70,
-    monthlyPrice: 1600,
-    gearType: "Auto",
-    gas: "Petrol",
-    year: 2022,
-  }
-  const rollsRoyceGhost: ICar = {
-    name: "Rolls Royce Ghost",
-    mileage: "0",
-    thumbnailSrc: "https://i.imgur.com/t6XBm9d.webp",
-    dailyPrice: 70,
-    monthlyPrice: 1600,
-    gearType: "Auto",
-    gas: "Petrol",
-    year: 2022,
+    if (cars) setTopCars(cars)
+    setLoading(false)
   }
 
   useEffect(() => {
     fetchTopCars()
   }, [])
 
-  const cars = [
-    <Car {...audiRS5} />,
-    <Car {...bmwM8} />,
-    <Car {...rollsRoyceGhost} />,
-  ]
+  const isEmptyTopCars = !topCars || topCars.length === 0
+
+  const cars =
+    (!isEmptyTopCars &&
+      topCars.map((car) => <Car {...car} thumbnailSrc={car.thumbnailSrc} />)) ||
+    []
 
   const numberOfDots = isMobile ? cars.length : Math.ceil(cars.length / 3)
 
   return (
-    <TopCarContainer>
-      <Title>Explore Our Top Rentals</Title>
-      <CarsContainer>
-        <Carousel
-          value={current}
-          onChange={setCurrent}
-          animationSpeed={1000}
-          slides={cars}
-          plugins={[
-            "infinite",
-            "arrows",
-            "autoplay",
-            {
-              resolve: autoplayPlugin,
-              options: {
-                interval: 2000,
-              },
-            },
-            {
-              resolve: slidesToShowPlugin,
-              options: {
-                numberOfSlides: 2,
-              },
-            },
-          ]}
-          breakpoints={{
-            640: {
-              plugins: [
-                {
-                  resolve: slidesToShowPlugin,
-                  options: {
-                    numberOfSlides: 1,
-                  },
+    <TopCarsContainer>
+      <Title>Explore Our Top Deals</Title>
+      {isLoading && (
+        <LoadingContainer>
+          <MoonLoader loading size={20} />
+        </LoadingContainer>
+      )}
+      {isEmptyTopCars && !isLoading && <EmptyCars>No Cars To Show!</EmptyCars>}
+      {!isEmptyTopCars && !isLoading && (
+        <CarsContainer>
+          <Carousel
+            value={current}
+            onChange={setCurrent}
+            slides={cars}
+            plugins={[
+              "clickToChange",
+              {
+                resolve: slidesToShowPlugin,
+                options: {
+                  numberOfSlides: 3,
                 },
-              ],
-            },
-            900: {
-              plugins: [
-                {
-                  resolve: slidesToShowPlugin,
-                  options: {
-                    numberOfSlides: 2,
+              },
+            ]}
+            breakpoints={{
+              640: {
+                plugins: [
+                  {
+                    resolve: slidesToShowPlugin,
+                    options: {
+                      numberOfSlides: 1,
+                    },
                   },
-                },
-              ],
-            },
-          }}
-        />
-        <Dots value={current} onChange={setCurrent} number={numberOfDots} />
-      </CarsContainer>
-    </TopCarContainer>
+                ],
+              },
+              900: {
+                plugins: [
+                  {
+                    resolve: slidesToShowPlugin,
+                    options: {
+                      numberOfSlides: 2,
+                    },
+                  },
+                ],
+              },
+            }}
+          />
+          <Dots value={current} onChange={setCurrent} number={numberOfDots} />
+        </CarsContainer>
+      )}
+    </TopCarsContainer>
   )
 }
