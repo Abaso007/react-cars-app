@@ -14,7 +14,7 @@ import { Button } from "../button"
 interface ICarProps extends ICar {}
 
 const CarContainer = styled.div`
-  min-width: 23em;
+  min-width: 19em;
   min-height: 23em;
   box-shadow: 0 1.3px 17px -2px rgba(0, 0, 0, 0.4);
   ${tw`

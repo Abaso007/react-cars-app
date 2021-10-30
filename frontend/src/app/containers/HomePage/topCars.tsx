@@ -46,7 +46,7 @@ const CarsContainer = styled.div`
     flex
     flex-wrap
     justify-center
-    mt-7
+    mt-3
     md:mt-10
   `};
 `
@@ -128,9 +128,12 @@ export default function TopCars() {
           <Carousel
             value={current}
             onChange={setCurrent}
+            animationSpeed={1000}
             slides={cars}
             plugins={[
-              "clickToChange",
+              "infinite",
+              "arrows",
+              "autoplay",
               {
                 resolve: slidesToShowPlugin,
                 options: {

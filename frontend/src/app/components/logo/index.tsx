@@ -36,7 +36,7 @@ const Image = styled.div`
 `
 
 export function Logo(props: ILogoProps) {
-  const { color, bgColor } = props
+  const { color } = props
   return (
     <LogoContainer>
       <Image>
