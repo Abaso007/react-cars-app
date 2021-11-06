@@ -1,5 +1,17 @@
 module.exports = {
+<<<<<<< HEAD
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+=======
+  purge: {
+    enable: true,
+    content: [
+      "./pages/**/*.{js,jsx,ts,tsx}",
+      "./components/**/**.{js,jsx,ts,tsx}",
+      "./containers/*.{js,jsx,ts,tsx}",
+      "./redux/**/*.{js,ts,jsx,tsx}",
+    ],
+  },
+>>>>>>> d1b97f474d703fb907c7c3a855131d050efff35d
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
